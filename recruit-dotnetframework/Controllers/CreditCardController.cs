@@ -39,6 +39,8 @@ namespace recruit_dotnetframework.Controllers
                     // _logger.LogError("Card registration failed: request body is null.");
                     return BadRequest("Request body is missing.");
                 }
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
                 string token, maskedCard;
 
